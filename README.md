@@ -3,7 +3,11 @@
 This is a simple web application built with **Flask** and **Machine Learning** to predict the best crop to cultivate based on soil and weather conditions. The model uses inputs like nitrogen, phosphorus, potassium, temperature, humidity, pH, and rainfall to recommend a crop.
 
 ---
-
+# TEAM ID_126
+### TEAM MEMBER
+- SURAJ KUMAR NAYAK (24CSE304)
+- PARSHURAM BISWAL (24CSE341)
+- CHARAN SAI (24CSE342)
 ## 🛠 Features
 
 - Predicts the **best crop** based on environmental inputs
