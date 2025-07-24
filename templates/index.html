@@ -1,0 +1,121 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crop Predictor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background: #eafaf1;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .main-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+        }
+
+        .title {
+            text-align: center;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 30px;
+        }
+
+        .form-label {
+            font-weight: 600;
+        }
+
+        .btn-submit {
+            background-color: #43a047;
+            color: white;
+            font-weight: 600;
+            padding: 10px 20px;
+        }
+
+        .btn-submit:hover {
+            background-color: #388e3c;
+        }
+
+        .result-card {
+            margin-top: 30px;
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-left: 6px solid #43a047;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2e7d32;
+            text-align: center;
+        }
+
+        .form-control:focus {
+            border-color: #66bb6a;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container main-container">
+    <h2 class="title">🌱 Smart Crop Recommendation</h2>
+
+    <form method="POST" action="/predict">
+        <div class="row g-3">
+            <div class="col-md-4">
+                <label for="N" class="form-label">Nitrogen (N)</label>
+                <input type="number" class="form-control" name="N" step="any" required>
+            </div>
+            <div class="col-md-4">
+                <label for="P" class="form-label">Phosphorus (P)</label>
+                <input type="number" class="form-control" name="P" step="any" required>
+            </div>
+            <div class="col-md-4">
+                <label for="K" class="form-label">Potassium (K)</label>
+                <input type="number" class="form-control" name="K" step="any" required>
+            </div>
+            <div class="col-md-4">
+                <label for="temperature" class="form-label">Temperature (°C)</label>
+                <input type="number" class="form-control" name="temperature" step="any" required>
+            </div>
+            <div class="col-md-4">
+                <label for="humidity" class="form-label">Humidity (%)</label>
+                <input type="number" class="form-control" name="humidity" step="any" required>
+            </div>
+            <div class="col-md-4">
+                <label for="ph" class="form-label">pH Value</label>
+                <input type="number" class="form-control" name="ph" step="any" required>
+            </div>
+            <div class="col-md-12">
+                <label for="rainfall" class="form-label">Rainfall (mm)</label>
+                <input type="number" class="form-control" name="rainfall" step="any" required>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-submit">🔍 Predict Crop</button>
+        </div>
+    </form>
+
+    {% if result %}
+        <div class="result-card mt-4">
+            {{ result }}
+        </div>
+    {% endif %}
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
